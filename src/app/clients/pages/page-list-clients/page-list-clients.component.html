@@ -1,1 +1,24 @@
-<p>page-list-clients works!</p>
+<app-template-full-width [title]="title" *ngIf="clientsCollection$ | async as clientsCollection">
+  <!-- <pre>{{clientsCollection | json}}</pre> -->
+  <app-table-light [headers]="headers">
+    <!-- <p>{{"10/01/1997" | date}}</p> -->
+
+
+    <tr *ngFor="let client of this.clientsCollection">
+      <td>{{ client.name |uppercase }}</td>
+      <td>{{ client.tva }}</td>
+      <td>{{ client.totalCaHt | currency }}</td>
+
+      <td>{{ client.totalCaHt | total :1 : client.tva | currency }}</td>
+      <td>{{ client.comment }}</td>
+      <td>{{ client.email }}</td>
+      <td>
+        <select (change)="changeState(client, $event)">
+          <option *ngFor="let state of states" [selected]='state===client.state' [value]='state'> {{state}}</option>
+        </select>
+      </td>
+    </tr>
+  </app-table-light>
+  <app-btn [route]="addLinks" [label]="addLabels"></app-btn>
+
+</app-template-full-width>

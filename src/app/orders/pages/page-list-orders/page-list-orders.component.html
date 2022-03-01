@@ -1,9 +1,42 @@
 <!-- creation de la propriété title dans template***.ts avec le @input -->
 
-<!-- <app-template-full-width title="title"> -->
+<!-- <app-template-full-width title="n'importe quel title"> -->
 
 <!-- creation d'un "binder" -->
-<app-template-full-width [title]="title">
+<app-template-full-width [title]="title" *ngIf="ordersCollection$ | async as ordersCollection">
+  <!-- <app-table-light [headers]="['titre1', 'titre2', 'titre3']"></app-table-light> -->
+  <!-- <pre>{{ordersCollection | json}}</pre> -->
+  <app-table-light [headers]="headers">
+    <tr *ngFor="let order of this.ordersCollection">
+      <td>{{ order.typePresta | titlecase }}</td>
+      <td>{{ order.client }}</td>
+      <td>{{ order.nbJours }}</td>
+      <td>{{ order.tjmHt | currency}}</td>
 
+      <!-- <td>{{ getTotalHT(order) }}</td>
+      <td>{{ getTotalTTC(order) }} </td> -->
+
+      <!--Fonction Total appéler 3 fois plus que nécessaire
+        <td>{{total(order.tjmHt, order.nbJours)}}</td>
+      <td>{{total(order.tjmHt, order.nbJours, order.tva)}}</td> -->
+
+      <td>{{order.tjmHt | total : order.nbJours | currency}}</td>
+      <td>{{order.tjmHt | total : order.nbJours : order.tva | currency}}</td>
+      <!-- <td>{{ order.state }}</td> -->
+      <td>
+        <select (change)="changeState(order, $event)">
+          <option *ngFor="let state of states" [selected]='state === order.state' [value]='state'>
+            {{state}}
+          </option>
+        </select>
+      </td>
+    </tr>
+
+  </app-table-light>
+  <app-btn [route]="addLinks" [label]="addLabels"></app-btn>
+
+
+  <!-- <button class="btn btn-primary" routerLink="add" routerLinkActive="add">add order</button>
+  <button class="btn btn-primary" routerLink="./../clients/add" routerLinkActive="add">add client</button> -->
 
 </app-template-full-width>
