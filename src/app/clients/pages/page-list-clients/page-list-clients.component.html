@@ -5,6 +5,10 @@
 
 
     <tr *ngFor="let client of this.clientsCollection">
+      <td>
+        <app-icon-edit></app-icon-edit>
+        <app-icon-delete></app-icon-delete>
+      </td>
       <td>{{ client.name |uppercase }}</td>
       <td>{{ client.tva }}</td>
       <td>{{ client.totalCaHt | currency }}</td>

@@ -23,6 +23,7 @@ export class PageListClientsComponent implements OnInit {
 
     this.title = 'list Clients';
     this.headers = [
+      'Action',
       'Name',
       'Tva',
       'Total Ca HT',

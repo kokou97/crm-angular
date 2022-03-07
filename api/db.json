@@ -49,6 +49,46 @@
       "client": "Modis",
       "comment": "Merci Modis pour les 10k",
       "id": 5
+    },
+    {
+      "typePresta": "Formation",
+      "client": "Total",
+      "nbJours": 18,
+      "tjmHt": 1200,
+      "tva": 20,
+      "state": "OPTION",
+      "comment": "Cool company",
+      "id": 6
+    },
+    {
+      "typePresta": "Prestation",
+      "client": "Banque de France",
+      "nbJours": 154,
+      "tjmHt": 1200,
+      "tva": 20,
+      "state": "OPTION",
+      "comment": "Cool company",
+      "id": 7
+    },
+    {
+      "typePresta": "Formation",
+      "client": "SOPRA STERIA",
+      "nbJours": 57,
+      "tjmHt": 1200,
+      "tva": 20,
+      "state": "CONFIRMED",
+      "comment": "OK",
+      "id": 8
+    },
+    {
+      "typePresta": "Prestation",
+      "client": "ATOS",
+      "nbJours": 15,
+      "tjmHt": 1200,
+      "tva": 20,
+      "state": "CONFIRMED",
+      "comment": "OK, cool",
+      "id": 9
     }
   ],
   "clients": [
