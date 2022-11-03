@@ -1,1 +1,5 @@
-<p>page-edit-client works!</p>
+<app-template-container title="Edit Client">
+  <p> Vous êtes entrain de modifier le client dont l'ID est {{id}}</p>
+  <app-form-client [init]="client" (submitted)="action($event)" *ngIf="client$ | async as client">
+  </app-form-client>
+</app-template-container>

@@ -5,10 +5,7 @@
 
 
     <tr *ngFor="let client of this.clientsCollection">
-      <td>
-        <app-icon-edit></app-icon-edit>
-        <app-icon-delete></app-icon-delete>
-      </td>
+
       <td>{{ client.name |uppercase }}</td>
       <td>{{ client.tva }}</td>
       <td>{{ client.totalCaHt | currency }}</td>
@@ -20,6 +17,11 @@
         <select (change)="changeState(client, $event)">
           <option *ngFor="let state of states" [selected]='state===client.state' [value]='state'> {{state}}</option>
         </select>
+      </td>
+
+      <td>
+        <app-icon-edit (click)="goToEdit(client.id)"></app-icon-edit>
+        <app-icon-delete></app-icon-delete>
       </td>
     </tr>
   </app-table-light>

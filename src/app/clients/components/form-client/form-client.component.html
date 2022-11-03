@@ -1,0 +1,40 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+
+  <div class="form-group">
+    <label for="state">state</label>
+    <select class="form-control" id="state" formControlName="state">
+      <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="tva">tva</label>
+    <input type="number" class="form-control" id="tva" formControlName="tva">
+
+  </div>
+
+  <div class="form-group">
+    <label for="name">name</label>
+    <input type="text" class="form-control" id="name" formControlName="name">
+
+  </div>
+
+  <div class="form-group">
+    <label for="totalCaHt">totalCaHt</label>
+    <input type="number" class="form-control" id="totalCaHt" formControlName="totalCaHt">
+  </div>
+
+  <div class="form-group">
+    <label for="comment">comment</label>
+    <input type="text" class="form-control" id="comment" formControlName="comment">
+  </div>
+
+  <div class="form-group">
+    <label for="email">email</label>
+    <input type="email" class="form-control" id="email" formControlName="email">
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,5 +1,6 @@
 <app-template-container title="Edit Order" >
   <!-- (submitted)="action($event)" -->
+  <p>Vous êtes entrain de modifier la commande dont l'ID est : {{id}}</p>
   <app-form-order [init]="order" *ngIf="order$ | async as order" (submitted)="action($event)">
 
   </app-form-order>

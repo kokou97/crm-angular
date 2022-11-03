@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { StateOrder } from 'src/app/core/enums/state-order';
 import { Order } from 'src/app/core/models/order';
 import { OrdersService } from '../../services/orders.service';
@@ -16,7 +16,7 @@ export class PageListOrdersComponent implements OnInit {
   public states: string[];
   // public ordersCollection!: Order[];
 
-  public ordersCollection$!: Observable<Order[]>;
+  public ordersCollection$!: BehaviorSubject<Order[]>;
 
   public addLinks!: string[];
   public addLabels!: string[];
@@ -25,7 +25,6 @@ export class PageListOrdersComponent implements OnInit {
     this.title = 'list Orders';
     this.states = Object.values(StateOrder);
     this.headers = [
-      'Action',
       'Type',
       'Client',
       'Nb jours',
@@ -33,6 +32,7 @@ export class PageListOrdersComponent implements OnInit {
       'Total HT',
       'Total TTC',
       'State',
+      'Action',
     ];
     this.ordersCollection$ = this.ordersService.collection$;
     // PAs nécessaire de faire la subscription
@@ -65,6 +65,10 @@ export class PageListOrdersComponent implements OnInit {
 
   public goToEdit(id: number): void {
     this.router.navigate(['orders', 'edit', id]);
+  }
+
+  public deleteItem(id: number): void {
+    this.ordersService.delete(id).subscribe();
   }
   ngOnInit(): void {}
 }

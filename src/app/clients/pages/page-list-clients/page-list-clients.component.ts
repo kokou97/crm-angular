@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { StateClient } from 'src/app/core/enums/state-client';
 import { Client } from 'src/app/core/models/client';
@@ -17,13 +18,12 @@ export class PageListClientsComponent implements OnInit {
   public addLinks!: string[];
   public addLabels!: string[];
 
-  constructor(private clientsService: ClientsService) {
+  constructor(private clientsService: ClientsService, private router: Router) {
     this.addLinks = ['add', './../orders/add'];
     this.addLabels = ['Add Client', 'Add Order'];
 
     this.title = 'list Clients';
     this.headers = [
-      'Action',
       'Name',
       'Tva',
       'Total Ca HT',
@@ -31,6 +31,7 @@ export class PageListClientsComponent implements OnInit {
       'Comment',
       'email',
       'State',
+      'Action',
     ];
     this.clientsCollection$ = this.clientsService.collection$;
 
@@ -46,6 +47,10 @@ export class PageListClientsComponent implements OnInit {
     this.clientsService
       .changeState(item, state)
       .subscribe((data) => (item = data));
+  }
+
+  public goToEdit(id: number): void {
+    this.router.navigate(['clients', 'edit', id]);
   }
   ngOnInit(): void {}
 }

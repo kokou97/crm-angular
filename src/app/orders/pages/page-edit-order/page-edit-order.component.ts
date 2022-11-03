@@ -11,14 +11,15 @@ import { OrdersService } from '../../services/orders.service';
 })
 export class PageEditOrderComponent implements OnInit {
   public order$: Observable<Order>;
+  public id!: number;
 
   constructor(
     private ordersService: OrdersService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
-    const id: number = Number(activatedRoute.snapshot.params['id']);
-    this.order$ = this.ordersService.getItemById(id);
+    this.id = Number(activatedRoute.snapshot.params['id']);
+    this.order$ = this.ordersService.getItemById(this.id);
     // .subscribe((data) => (this.order = data))
   }
 

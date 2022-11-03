@@ -34,7 +34,7 @@
       "tjmHt": 1200,
       "nbJours": 12,
       "tva": 20,
-      "state": "CONFIRMED",
+      "state": "CANCELLED",
       "typePresta": "formation",
       "client": "Capgemini",
       "comment": "Merci capgemini pour les 14k",
@@ -82,7 +82,7 @@
     },
     {
       "typePresta": "Prestation",
-      "client": "ATOS",
+      "client": "ATOS32",
       "nbJours": 15,
       "tjmHt": 1200,
       "tva": 20,
@@ -118,6 +118,15 @@
       "comment": "rsger",
       "id": 3,
       "email": "modis@gmail.com"
+    },
+    {
+      "name": "Ralph",
+      "totalCaHt": 1520,
+      "email": "edd@erro.fr",
+      "tva": 20,
+      "state": "ACTIVE",
+      "comment": "Eroo15",
+      "id": 4
     }
   ]
 }
